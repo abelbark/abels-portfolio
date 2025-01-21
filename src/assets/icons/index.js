@@ -7,8 +7,6 @@ import p3 from './p3.svg';
 import p4 from './p4.svg';
 import gsap from './gsap.svg';
 import re from './re.svg';
-import three from './three.svg';
-import ts from './ts.svg';
 import reactLogo from './react-logo.svg';
 import mobileDev from './mobiledev-logo.svg';
 import desktop from './desktop.svg'
@@ -26,8 +24,6 @@ export {
     p4,
     gsap,
     re,
-    three,
-    ts,
     reactLogo,
     mobileDev,
     desktop

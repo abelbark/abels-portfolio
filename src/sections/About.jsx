@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'; // Import ScrollTrigger
-import { codeCategories } from '../constants/index.js';
-import { webDev, gamePad, python } from "../assets/images/index.js";
 import { reactLogo, mobileDev, desktop } from '../assets/icons/index.js';
 
 gsap.registerPlugin(ScrollTrigger); // Register the plugin
@@ -103,7 +101,7 @@ const About = () => {
         <div className="category-item flex flex-col items-start p-6 bg-black-300 border border-gray-700 rounded-lg ">
           <div className="flex items-center">
             <div className="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500">
-              <img src={mobileDev} alt="gamepad" className="w-12 h-12" />
+              <img src={mobileDev} alt="mobile development" className="w-12 h-12" />
             </div>
             <h5 className="text-lg font-semibold text-white ml-4">
               <span>Mobile App</span> <br /> Development

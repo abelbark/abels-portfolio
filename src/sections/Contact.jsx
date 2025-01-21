@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import { AwesomeButton } from 'react-awesome-button';
+import 'react-awesome-button/dist/styles.css';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -21,9 +23,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    // W8D9BjF21kM45fhbb
-    // template_cstu4ej
-    // service_o26f7fq
+
 
     if(!form.name || !form.email || !form.message) {
       setLoading(false);
@@ -32,13 +32,13 @@ const Contact = () => {
     }
 
     emailjs.send(
-      'service_o26f7fq', 
-      'template_cstu4ej', 
+      'your_code', // they are unique to user
+      'template_code', 
       {
         from_name: form.name,
         to_name: 'Abel',
         form_email: form.email,
-        to_email: 'abelabarca65@gmail.com',
+        to_email: 'email@gmail.com', // my email
         message: form.message,
       },
       'W8D9BjF21kM45fhbb'
@@ -103,10 +103,11 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="bg-blue-600 py-3 px-6 rounded-lg text-white font-bold"
+            className="bg-secondary py-3 px-6 rounded-lg text-gray-700 font-bold"
           >
             {loading ? "Sending..." : "Send"}
           </button>
+
         </form>
       </div>
     </section>

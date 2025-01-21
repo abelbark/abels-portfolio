@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { navLinks } from '../constants/index.js';
 import { ninjaLogo } from '../assets/images/index.js';
+import { close, menu } from '../assets/icons/index.js';
 
 const scrollToSection = (href) => {
   const element = document.querySelector(href);
   if (element) {
-    const yOffset = -75; // Adjust this offset according to your navbar height
+    const yOffset = -75; // Adjust for navbar height
     const yPosition = element.getBoundingClientRect().top + window.scrollY + yOffset;
 
     window.scrollTo({
@@ -23,8 +24,8 @@ const NavItems = ({ onClick = () => {} }) => (
           href={item.href}
           className="nav-li_a"
           onClick={(e) => {
-            e.preventDefault(); // Prevent default anchor behavior
-            scrollToSection(item.href); // Custom scroll function
+            e.preventDefault(); 
+            scrollToSection(item.href);
             onClick(); // Close menu after navigation
           }}
         >
@@ -37,15 +38,30 @@ const NavItems = ({ onClick = () => {} }) => (
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  // Handle scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
-        isOpen ? 'bg-black' : 'bg-transparent hover:bg-black'
-      }`}
+        isScrolled || isOpen ? 'bg-black' : 'bg-transparent'
+      } hover:bg-black`}
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
@@ -59,7 +75,7 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             <img
-              src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'}
+              src={isOpen ? close : menu} // Fixed src issue
               alt="toggle"
               className="w-[32px] h-[32px] object-contain cursor-pointer"
             />

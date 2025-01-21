@@ -1,6 +1,7 @@
-import { supreme1, supreme2, supreme3, supreme4, webDev, python, gamePad, mealCalender, mouseTrap2, coupanion2, eyedressProj, cnTutoring,  } from "../assets/images";
+import { supreme1, supreme2, supreme3, supreme4, mealCalender, mouseTrap2, coupanion2, eyedressProj, cnTutoring  } from "../assets/images";
 import { introVid, abelll, pastEyedress } from "../assets/videos";
-import { p2, gsap, re, three, ts } from "../assets/icons";
+import { p2, gsap, re } from "../assets/icons";
+import { darkAWS, darkCSS, darkHTML, darkJS, darkReact, darkTailwind, firebase, wordpress, darkJava, darkFigma } from "../../public/assets/tech-logos";
 
 export const imageStories = [
     {
@@ -27,25 +28,6 @@ export const navLinks = [
 
 
 
-export const codeCategories = [
-  {
-    imgURL: webDev,
-    title: 'Web Development',
-    bgColor: '#3490dc', // Example color for web development
-  },
-  {
-    imgURL: python,
-    title: 'Introductory Programming',
-    bgColor: '#f59e0b', // Example color for Python
-  },
-  {
-    imgURL: gamePad,
-    title: 'Game Development',
-    bgColor: '#10b981', // Example color for game development
-  },
-];
-
-
 
 export const projects = [
   {
@@ -53,7 +35,7 @@ export const projects = [
     title: "Code Ninjas Tutoring Service Site",
     des: "Developed a responsive website for Code Ninjas Studio City, showcasing their diverse tutoring services, including web development, where I will also be an instructor.",
     img: cnTutoring,
-    iconLists: [gsap, re, three, ts],
+    iconLists: [wordpress, darkCSS, darkFigma],
     link: "/ui.earth.com",
   },
   {
@@ -61,7 +43,7 @@ export const projects = [
     title: "Abel's Portfolio (Current Page)",
     des: "Developed a responsive portfolio website to showcase my expertise and background in computer science, allowing visitors to learn more about my work.",
     img: p2,
-    iconLists:[gsap, re, three, ts],
+    iconLists:[darkReact, darkTailwind, darkFigma],
     link: "/ui.yoom.com",
   },
   {
@@ -69,32 +51,32 @@ export const projects = [
     title: "Eyedress Tamagotchi Game",
     des: "Creating an interactive digital pet inspired by indie artist Eyedress using MakeCode Arcade, with an LCD display and data management via EYESPI.",
     img: eyedressProj,
-    iconLists: [gsap, re, three, ts],
-    link: "/ui.aiimg.com",
+    iconLists: [darkJS, darkFigma],
+    link: "https://arcade.makecode.com/S40020-80839-16047-63240",
   },
   {
     id: 4,
     title: "Mouse Trap A* Algorithm Game",
     des: "Implemented maze generation and the A* algorithm to create engaging, dynamic gameplay, while designing an interactive graphical user interface (GUI) in Processing",
     img: mouseTrap2,
-    iconLists: [gsap, re, three, ts],
-    link: "/ui.apple.com",
+    iconLists: [darkJava, darkFigma],
+    link: "https://github.com/abelbark/Mouse-Trap",
   },
   {
     id: 5,
     title: "Coupanion Mobile Discount Service",
     des: "Developed a full-stack mobile app for business owners to easily list services, products, and promotions, streamlining their offerings and customer reach.",
     img: coupanion2,
-    iconLists: [gsap, re, three, ts],
-    link: "/ui.apple.com",
+    iconLists: [darkReact, darkAWS, firebase, darkFigma],
+    link: "https://github.com/kyle-hebron/coupanion",
   },
   {
     id: 6,
     title: "Salt N Prepper Meal Planner",
     des: "Partnered with a team to build a dynamic, responsive online fitness and health journal, leading the development of the full-stack web application.",
     img: mealCalender,
-    iconLists: [gsap, re, three, ts],
-    link: "/ui.apple.com",
+    iconLists: [darkHTML, darkCSS, darkJS, darkFigma],
+    link: "https://github.com/abelbark/Meal-Planner",
   },
 ];
 

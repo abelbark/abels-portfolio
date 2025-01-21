@@ -4,8 +4,6 @@ import supreme3 from './SupremePic3.jpg'
 import supreme4 from './SupremePic4.jpg'
 import ninjaLogo from './ninja-logo.png'
 import webDev from './webdev.svg'
-import python from './python.svg'
-import gamePad from './gamepad.svg'
 import bg from './bg.png'
 import leftArrow from './left-arrow.png'
 import rightArrow from './right-arrow.png'
@@ -30,8 +28,6 @@ export {
     supreme4,
     ninjaLogo,
     webDev,
-    python,
-    gamePad,
     bg,
     leftArrow,
     rightArrow,
