@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Stories from 'react-insta-stories';
 import { imageStories } from '../constants';
 import gsap from 'gsap';
 
 const Hero = () => {
-  
   const heroTextRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0); // Track the current story index
 
   // Convert imageStories to the format expected by the Stories component
   const stories = imageStories.map((story) => ({
@@ -14,8 +14,43 @@ const Hero = () => {
     duration: 3000, // Optional: set duration for each image in ms
   }));
 
+  // Handle click to navigate to the next or previous story
+  const handleStoryClick = (event) => {
+    const screenWidth = window.innerWidth;
+    const clickPosition = event.clientX;
+
+    if (clickPosition < screenWidth / 2) {
+      // Go to the previous story if clicked on the left half of the screen
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? stories.length - 1 : prevIndex - 1));
+    } else {
+      // Go to the next story if clicked on the right half of the screen
+      setCurrentIndex((prevIndex) => (prevIndex === stories.length - 1 ? 0 : prevIndex + 1));
+    }
+  };
+
   useEffect(() => {
-      // GSAP animation after the specified delay
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowLeft') {
+        // Loop back to the last story if at the beginning
+        setCurrentIndex((prevIndex) =>
+          prevIndex === 0 ? stories.length - 1 : prevIndex - 1
+        );
+      } else if (event.key === 'ArrowRight') {
+        // Loop back to the first story if at the end
+        setCurrentIndex((prevIndex) =>
+          prevIndex === stories.length - 1 ? 0 : prevIndex + 1
+        );
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [stories.length]);
+  
+
+  useEffect(() => {
+    if (currentIndex === 0 && heroTextRef.current) {
+      // GSAP animation only on the first slide
       gsap.fromTo(
         heroTextRef.current.children,
         { opacity: 0, y: 50 },
@@ -28,18 +63,26 @@ const Hero = () => {
           delay: 0.5,
         }
       );
-  }, []); // Empty dependency array to run once on mount
-
+    }
+  }, [currentIndex]);
 
   return (
-    <section className="min-h-screen w-full flex flex-col relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen w-full flex flex-col relative overflow-hidden"
+      onClick={handleStoryClick}
+    >
       <Stories
-        stories={stories} // Pass the stories array
-        defaultInterval={3000} // Optional: Default duration if not provided per story
-        width="100vw" // Set the width to the full viewport width
-        height="100vh" // Set the height to the full viewport height
-        loop={true} // Loop the stories
-        preventDefault={true} // Prevent default event handling
+        stories={stories}
+        defaultInterval={3000}
+        width="100vw"
+        height="100vh"
+        loop={true}
+        keyboardNavigation={true}
+        currentIndex={currentIndex}
+        onStoryEnd={() => setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length)}
+        onStoryStart={() => setCurrentIndex((prevIndex) => prevIndex)}
+        preventDefault={true}
         storyContainerStyles={{
           width: '100%',
           height: '100%',
@@ -49,9 +92,9 @@ const Hero = () => {
           overflow: 'hidden',
         }}
         storyStyles={{
-          objectFit: 'cover', // Ensure the image covers the full section without black space
-          width: '100vw', // Full viewport width
-          height: '100vh', // Full viewport height
+          objectFit: 'cover',
+          width: '100vw',
+          height: '100vh',
         }}
         progressContainerStyles={{
           position: 'absolute',
@@ -64,21 +107,7 @@ const Hero = () => {
           flex: 1,
         }}
       />
-      {/* Overlay text */}
-      <div
-        ref={heroTextRef}
-        className="absolute left-0 bottom-28 sm:bottom-32 px-8 sm:px-16 text-white text-left"
-      >
-        <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
-          Welcome to
-        </p>
-        <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
-          Abel's Portfolio
-        </h2>
-        <p className="mt-4 text-[17px] max-w-3xl leading-[30px]">
-          
-        </p>
-      </div>
+
     </section>
   );
 };

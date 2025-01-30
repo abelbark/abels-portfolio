@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { projects } from "../constants";
 import { bg, leftArrow, rightArrow } from "../assets/images";
 import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger); // Register the plugin
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const projectRef = useRef(null);
 
   const handleNavigation = (direction) => {
     let newIndex = currentIndex;
@@ -31,6 +35,26 @@ const Projects = () => {
     );
   };
 
+
+  useEffect(() => {
+    // GSAP scroll animation
+    gsap.fromTo(
+      projectRef.current.children,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        stagger: 0.5,
+        scrollTrigger: {
+          trigger: projectRef.current, // Element to trigger the animation
+          start: 'top 80%', // Start when the top of the element is 80% down the viewport
+        },
+      }
+    );
+  }, []); // Empty dependency array to run once on mount
+
   useEffect(() => {
     // Trigger fade-in for the initial slide with a slower transition
     const currentSlide = document.querySelector(`#slide-${currentIndex}`);
@@ -42,7 +66,7 @@ const Projects = () => {
   }, [currentIndex]);
 
   return (
-    <section id="pricing" className="c-space my-20">
+    <section ref={projectRef} id="pricing" className="c-space my-20">
       <h2 className="head-text c-space my-12">Projects</h2>
 
       <div className="c-space my-12 flex flex-col items-center">
@@ -61,7 +85,10 @@ const Projects = () => {
               >
                 <img
                   src={item.img}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transform rotate-[1.8deg] scale-[1.1] translate-x-[2.5%] translate-y-[1.5%] border rounded-lg"
+                  style={{
+                    clipPath: "inset(5% 5% -5% 3.3%)", // Crop the image
+                  }}
                   alt="Background"
                 />
               </div>

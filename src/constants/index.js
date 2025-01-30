@@ -1,27 +1,29 @@
-import { supreme1, supreme2, supreme3, supreme4, mealCalender, mouseTrap2, coupanion2, eyedressProj, cnTutoring  } from "../assets/images";
-import { introVid, abelll, pastEyedress } from "../assets/videos";
+import { supreme1, supreme2, supreme3, supreme4, mealCalender, mouseTrap2, coupanion2, eyedressProj, cnTutoring, abelsPortfolio, helloWorld  } from "../assets/images";
+import { introVid, pastEyedress, abelLA, notMasterCard } from "../assets/videos";
 import { p2, gsap, re } from "../assets/icons";
 import { darkAWS, darkCSS, darkHTML, darkJS, darkReact, darkTailwind, firebase, wordpress, darkJava, darkFigma } from "../../public/assets/tech-logos";
 
 export const imageStories = [
     {
-        imgURL: supreme1 
+        // imgURL: supreme1 
+        imgURL: helloWorld,
     },
     {
-        imgURL: supreme2
+        
+        videoURL: abelLA,
     },
     {
         // imgURL: supreme3
-        videoURL: pastEyedress
+        videoURL: notMasterCard
     },
     {
-        // imgURL: supreme4
-        videoURL: introVid,
+        imgURL: supreme4
     }
 ];
 
 export const navLinks = [
-    { id: 1, name: "About", href: "#about" },
+    { id: 1, name: "Home", href: "#home" },
+    { id: 2, name: "About", href: "#about" },
     { id: 3, name: "Pricing", href: "#pricing" },
     { id: 4, name: "Contact", href: "#contact" },
 ];
@@ -36,15 +38,15 @@ export const projects = [
     des: "Developed a responsive website for Code Ninjas Studio City, showcasing their diverse tutoring services, including web development, where I will also be an instructor.",
     img: cnTutoring,
     iconLists: [wordpress, darkCSS, darkFigma],
-    link: "/ui.earth.com",
+    link: "https://tutoring.codeninjasstudiocity.com",
   },
   {
     id: 2,
     title: "Abel's Portfolio (Current Page)",
     des: "Developed a responsive portfolio website to showcase my expertise and background in computer science, allowing visitors to learn more about my work.",
-    img: p2,
+    img: abelsPortfolio,
     iconLists:[darkReact, darkTailwind, darkFigma],
-    link: "/ui.yoom.com",
+    link: "https://github.com/abelbark/abels-portfolio",
   },
   {
     id: 3,

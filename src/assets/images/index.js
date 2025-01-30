@@ -13,6 +13,8 @@ import mouseTrap2 from './mouse-trap2.png'
 import coupanion2 from './coupanion2.png'
 import eyedressProj from './eyedressproj.png'
 import cnTutoring from './cn-tutoring.png'
+import abelsPortfolio from './abels-portfolio.png'
+import helloWorld from "./hello-world.png";
 
 
 
@@ -36,7 +38,9 @@ export {
     mouseTrap2,
     coupanion2,
     eyedressProj,
-    cnTutoring
+    cnTutoring,
+    abelsPortfolio,
+    helloWorld
 }
 
 
