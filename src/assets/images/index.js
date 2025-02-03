@@ -14,7 +14,8 @@ import coupanion2 from './coupanion2.png'
 import eyedressProj from './eyedressproj.png'
 import cnTutoring from './cn-tutoring.png'
 import abelsPortfolio from './abels-portfolio.png'
-import helloWorld from "./hello-world.png";
+import helloWorld from "./hello-world.png"
+import miniIntro from "./mini-intro.png"
 
 
 
@@ -40,7 +41,8 @@ export {
     eyedressProj,
     cnTutoring,
     abelsPortfolio,
-    helloWorld
+    helloWorld,
+    miniIntro
 }
 
 

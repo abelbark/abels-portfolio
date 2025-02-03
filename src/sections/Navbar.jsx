@@ -66,7 +66,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
           <a className="flex items-center gap-2" href="/">
-            <img src={ninjaLogo} alt="logo" className="h-12 sm:h-14" />
+          <h5 className="text-2xl font-semibold text-white">
+              {"<Abel />"}
+            </h5>
           </a>
 
           <button

@@ -66,7 +66,7 @@ const Projects = () => {
   }, [currentIndex]);
 
   return (
-    <section ref={projectRef} id="pricing" className="c-space my-20">
+    <section ref={projectRef} id="projects" className="c-space my-20">
       <h2 className="head-text c-space my-12">Projects</h2>
 
       <div className="c-space my-12 flex flex-col items-center">

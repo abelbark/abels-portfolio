@@ -1,11 +1,13 @@
 import introVid from "./introVid.mp4";
-import pastEyedress from "./past-eyedress.mp4";
 import abelLA from "./abel-la.mp4";
 import notMasterCard from "./not-mastercard.mov";
+import sunset from "./sunset.mp4";
+import miniCard from "./minicard.mov";
 
 export { 
     introVid,
-    pastEyedress,
     abelLA,
-    notMasterCard
+    notMasterCard,
+    sunset,
+    miniCard
 };

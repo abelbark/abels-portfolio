@@ -9,7 +9,8 @@ import gsap from './gsap.svg';
 import re from './re.svg';
 import reactLogo from './react-logo.svg';
 import mobileDev from './mobiledev-logo.svg';
-import desktop from './desktop.svg'
+import desktop from './desktop.svg';
+import initial from './initial.png';
 
 
 
@@ -26,5 +27,6 @@ export {
     re,
     reactLogo,
     mobileDev,
-    desktop
+    desktop,
+    initial
 }

@@ -3,7 +3,7 @@ import Footer from './sections/Footer.jsx';
 import Navbar from './sections/Navbar.jsx';
 import Contact from './sections/Contact.jsx';
 import About from './sections/About.jsx';
-import Pricing from './sections/Projects.jsx';
+import Projects from './sections/Projects.jsx';
 
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
-      <Pricing />
+      <Projects />
       <Contact />
       <Footer />
     </main>

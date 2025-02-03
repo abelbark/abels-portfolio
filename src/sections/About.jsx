@@ -56,7 +56,6 @@ const About = () => {
     <section id="about" className="c-space my-20">
       {/* About Us Section */}
       <div ref={aboutTextRef} className="c-space text-white text-left">
-        <p className="text-secondary text-white uppercase tracking-wider sm:text-[18px] text-[14px]">Introduction</p>
         <h2 className="head-text">About Me</h2>
         <div className="mt-4 text-secondary text-[17px] max-w-4xl leading-[30px]">
           <p className="animatedText">Hi, I’m Abel Abarca, a Full-Stack Developer based in 

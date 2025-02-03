@@ -1,30 +1,34 @@
-import { supreme1, supreme2, supreme3, supreme4, mealCalender, mouseTrap2, coupanion2, eyedressProj, cnTutoring, abelsPortfolio, helloWorld  } from "../assets/images";
-import { introVid, pastEyedress, abelLA, notMasterCard } from "../assets/videos";
+import { mealCalender, mouseTrap2, coupanion2, eyedressProj, cnTutoring, abelsPortfolio, helloWorld, miniIntro  } from "../assets/images";
+import { introVid, abelLA, notMasterCard, sunset, miniCard } from "../assets/videos";
 import { p2, gsap, re } from "../assets/icons";
 import { darkAWS, darkCSS, darkHTML, darkJS, darkReact, darkTailwind, firebase, wordpress, darkJava, darkFigma } from "../../public/assets/tech-logos";
 
-export const imageStories = [
-    {
-        // imgURL: supreme1 
-        imgURL: helloWorld,
-    },
-    {
-        
-        videoURL: abelLA,
-    },
-    {
-        // imgURL: supreme3
-        videoURL: notMasterCard
-    },
-    {
-        imgURL: supreme4
-    }
-];
+const getImageStories = () => {
+  return window.matchMedia("(max-width: 520px)").matches
+    ? [
+        { imgURL: miniIntro },
+        { videoURL: abelLA },
+        { videoURL: miniCard },
+        { videoURL: sunset }
+      ]
+    : [
+        { imgURL: helloWorld },
+        { videoURL: abelLA },
+        { videoURL: notMasterCard },
+        { videoURL: sunset }
+      ];
+};
+
+export let imageStories = getImageStories();
+
+// Update dynamically when screen resizes
+window.addEventListener("resize", () => {
+  imageStories = getImageStories();
+});
 
 export const navLinks = [
-    { id: 1, name: "Home", href: "#home" },
     { id: 2, name: "About", href: "#about" },
-    { id: 3, name: "Pricing", href: "#pricing" },
+    { id: 3, name: "Projects", href: "#projects" },
     { id: 4, name: "Contact", href: "#contact" },
 ];
 
@@ -50,7 +54,7 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Eyedress Tamagotchi Game",
+    title: "Eyedress Tamagotchi Game (WIP)",
     des: "Creating an interactive digital pet inspired by indie artist Eyedress using MakeCode Arcade, with an LCD display and data management via EYESPI.",
     img: eyedressProj,
     iconLists: [darkJS, darkFigma],
