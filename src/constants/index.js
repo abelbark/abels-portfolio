@@ -2,29 +2,45 @@ import { mealCalender, mouseTrap2, coupanion2, eyedressProj, cnTutoring, abelsPo
 import { introVid, abelLA, notMasterCard, sunset, miniCard } from "../assets/videos";
 import { p2, gsap, re } from "../assets/icons";
 import { darkAWS, darkCSS, darkHTML, darkJS, darkReact, darkTailwind, firebase, wordpress, darkJava, darkFigma } from "../../public/assets/tech-logos";
+import { useState, useEffect } from "react";
 
+// Make sure to return the updated array on window resize
 const getImageStories = () => {
-  return window.matchMedia("(max-width: 520px)").matches
-    ? [
-        { imgURL: miniIntro },
-        { videoURL: abelLA },
-        { videoURL: miniCard },
-        { videoURL: sunset }
-      ]
-    : [
-        { imgURL: helloWorld },
-        { videoURL: abelLA },
-        { videoURL: notMasterCard },
-        { videoURL: sunset }
-      ];
+  if (window.innerWidth <= 520) {
+    return [
+      { imgURL: miniIntro },
+      { videoURL: abelLA },
+      { videoURL: miniCard },
+      { videoURL: sunset }
+    ];
+  } else {
+    return [
+      { imgURL: helloWorld },
+      { videoURL: abelLA },
+      { videoURL: notMasterCard },
+      { videoURL: sunset }
+    ];
+  }
 };
 
-export let imageStories = getImageStories();
+export const useImageStories = () => {
+  const [imageStories, setImageStories] = useState(getImageStories()); // Initial state
 
-// Update dynamically when screen resizes
-window.addEventListener("resize", () => {
-  imageStories = getImageStories();
-});
+  useEffect(() => {
+
+    const resizeListener = () => {
+      setImageStories(getImageStories()); // Update the stories on resize
+    };
+    
+    window.addEventListener('resize', resizeListener);
+
+    // Clean up listener when the component is unmounted
+    return () => window.removeEventListener('resize', resizeListener);
+  }, []);
+
+  return imageStories;
+};
+
 
 export const navLinks = [
     { id: 2, name: "About", href: "#about" },
