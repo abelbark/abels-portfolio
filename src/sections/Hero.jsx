@@ -15,6 +15,9 @@ const Hero = () => {
     url: story.imgURL || story.videoURL,
     type: story.videoURL ? 'video' : 'image',
     duration: 3000,
+    muted: true,
+    playsInline: true,
+    autoplay: true,
     id: `${index}-${resetTrigger}`, // Forces a refresh after resize
   }));
 
