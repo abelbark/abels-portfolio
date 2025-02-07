@@ -12,8 +12,8 @@ const Hero = () => {
 
   const imageStories = useImageStories();
   const stories = imageStories.map((story, index) => ({
-    url: story.imgURL || story.videoURL,
-    type: story.videoURL ? 'video' : 'image',
+    url: story.imgURL,
+    type: 'image',
     duration: 3000,
     muted: true,
     playsInline: true,

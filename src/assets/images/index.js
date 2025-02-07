@@ -1,7 +1,3 @@
-import supreme1 from './SupremePic1.jpg'
-import supreme2 from './SupremePic2.jpg'
-import supreme3 from './SupremePic3.jpg'
-import supreme4 from './SupremePic4.jpg'
 import ninjaLogo from './ninja-logo.png'
 import webDev from './webdev.svg'
 import bg from './bg.png'
@@ -16,19 +12,17 @@ import cnTutoring from './cn-tutoring.png'
 import abelsPortfolio from './abels-portfolio.png'
 import helloWorld from "./hello-world.png"
 import miniIntro from "./mini-intro.png"
-
-
-
+import cardy from "./cardy.gif"
+import abelCV from "./abelcv.png"
+import miniAbelCV from "./abelcv-mini.png"
+import goodwill from "./goodwill.gif"
+import miniGoodWill from "./mini-goodwill.gif"
 
 
 
 
 
 export {
-    supreme1,
-    supreme2,
-    supreme3,
-    supreme4,
     ninjaLogo,
     webDev,
     bg,
@@ -42,7 +36,12 @@ export {
     cnTutoring,
     abelsPortfolio,
     helloWorld,
-    miniIntro
+    miniIntro,
+    cardy,
+    abelCV,
+    miniAbelCV,
+    goodwill,
+    miniGoodWill
 }
 
 

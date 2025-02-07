@@ -1,5 +1,4 @@
-import { mealCalender, mouseTrap2, coupanion2, eyedressProj, cnTutoring, abelsPortfolio, helloWorld, miniIntro  } from "../assets/images";
-import { introVid, abelLA, notMasterCard, sunset, miniCard } from "../assets/videos";
+import { mealCalender, mouseTrap2, coupanion2, eyedressProj, cnTutoring, abelsPortfolio, helloWorld, miniIntro, abelCV, miniAbelCV, miniGoodWill, goodwill  } from "../assets/images";
 import { p2, gsap, re } from "../assets/icons";
 import { darkAWS, darkCSS, darkHTML, darkJS, darkReact, darkTailwind, firebase, wordpress, darkJava, darkFigma } from "../../public/assets/tech-logos";
 import { useState, useEffect } from "react";
@@ -9,25 +8,32 @@ const getImageStories = () => {
   if (window.innerWidth <= 520) {
     return [
       { imgURL: miniIntro },
-      { videoURL: abelLA },
-      { videoURL: miniCard },
-      { videoURL: sunset }
+      { imgURL: miniGoodWill },
+      { imgURL: miniAbelCV },
     ];
   } else {
     return [
       { imgURL: helloWorld },
-      { videoURL: abelLA },
-      { videoURL: notMasterCard },
-      { videoURL: sunset }
+      { imgURL: goodwill },
+      { imgURL: abelCV },
     ];
   }
 };
+
+// // Preload images to avoid delays
+// const preloadImages = (images) => {
+//   images.forEach((img) => {
+//     const imgElement = new Image();
+//     imgElement.src = img.imgURL 
+//   });
+// };
 
 export const useImageStories = () => {
   const [imageStories, setImageStories] = useState(getImageStories()); // Initial state
 
   useEffect(() => {
 
+    // preloadImages(getImageStories());
     const resizeListener = () => {
       setImageStories(getImageStories()); // Update the stories on resize
     };
