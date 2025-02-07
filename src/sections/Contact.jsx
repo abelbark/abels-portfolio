@@ -54,13 +54,13 @@ const Contact = () => {
     }
 
     emailjs.send(
-      'service_o26f7fq', // they are unique to user
-      'template_cstu4ej', 
+      '', // they are unique to user
+      '', 
       {
         from_name: form.name,
         to_name: 'Abel',
         form_email: form.email,
-        to_email: 'abelabarca65@gmail.com', // my email
+        to_email: '', // my email
         message: form.message,
       },
       'W8D9BjF21kM45fhbb'
